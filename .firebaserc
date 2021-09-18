@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "crud-bl-daniel-c": {
+      "hosting": {
+        "crudBossLDCC": [
+          "crud-bl-daniel-c"
+        ]
+      }
+    }
+  }
+}

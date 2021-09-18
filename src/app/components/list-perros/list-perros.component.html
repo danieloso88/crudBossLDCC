@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <span class="h3">Lista de Perritos</span>
+      <button class="btn btn-success btn-lg" style="float:right" routerLink="/create-perro">Agregar</button>
+      <h5 *ngIf="perros.length == 0" style="margin-top: 30px">No hay datos para mostrar</h5>
+      <table *ngIf="perros.length > 0" class="table mt-5  table-success table-striped">
+        <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Raza</th>
+          <th>Color</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Edad</th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let perro of perros">
+          <td>{{perro.nombre}}</td>
+          <td>{{perro.raza}}</td>
+          <td>{{perro.color}}</td>
+          <td>{{perro.fechaNacimiento}}</td>
+          <td>{{perro.edad}}</td>
+          <td><i class="fas fa-edit text-primary" [routerLink]="['/edit-perro/', perro.id]"></i></td>
+          <td><i (click)="deletePerro(perro.id)" class="fas fa-trash text-danger"></i></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
