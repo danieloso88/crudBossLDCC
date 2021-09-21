@@ -3,7 +3,6 @@ import * as moment from 'moment';
 import {PerrosService} from "../../services/perros.service";
 import {ToastrService} from "ngx-toastr";
 
-
 @Component({
   selector: 'app-list-perros',
   templateUrl: './list-perros.component.html',
@@ -26,17 +25,25 @@ export class ListPerrosComponent implements OnInit {
       this.perros = [];
       data.forEach((element: any) => {
         var date = new Date(element.payload.doc.data()["fechaNacimiento"].seconds * 1000);
-        var edad = moment(date, "YYYYMMDD").fromNow();
-        edad = edad.replace("hace", "");
-        console.log(date)
+        var edad = moment().diff(date, 'years');
+        var time = " años"
+        if (edad == 0) {
+          edad = moment().diff(date, 'months');
+          time = " meses"
+          if (edad == 0) {
+            edad = moment().diff(date, 'days');
+            time = " días";
+          }
+        }
+
         this.perros.push({
           id: element.payload.doc.id,
           nombre: element.payload.doc.data().nombre,
           raza: element.payload.doc.data().raza,
           color: element.payload.doc.data().color,
           fechaNacimiento: moment(date).format('LL'),
-          edad: edad
-          //  ...element.payload.doc.data()
+          edad: edad + time
+
         });
       });
       console.log(this.perros);
