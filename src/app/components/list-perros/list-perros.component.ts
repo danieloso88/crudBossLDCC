@@ -3,6 +3,7 @@ import * as moment from 'moment';
 import {PerrosService} from "../../services/perros.service";
 import {ToastrService} from "ngx-toastr";
 import {Dayjs} from "dayjs";
+import * as dayjs from "dayjs";
 
 @Component({
   selector: 'app-list-perros',
@@ -29,7 +30,9 @@ export class ListPerrosComponent implements OnInit {
       data.forEach((element: any) => {
         var date = new Date(element.payload.doc.data()["fechaNacimiento"].seconds * 1000);
         var edad = moment().diff(date, 'years');
-        var time = " años"
+        var time = " años";
+        var ultimaVacuna = new Date(element.payload.doc.data()["ultimaVacuna"].seconds * 1000);
+        var proximaVacuna = dayjs(ultimaVacuna).add(10, 'months').locale('es-mx').format("YYYY-MM-DD");
         if (edad == 0) {
           edad = moment().diff(date, 'months');
           time = " meses"
@@ -45,9 +48,12 @@ export class ListPerrosComponent implements OnInit {
           raza: element.payload.doc.data().raza,
           color: element.payload.doc.data().color,
           fechaNacimiento: moment(date).format('LL'),
+          ultimaVacuna: moment(ultimaVacuna).format('LL'),
+          proximaVacuna: moment(proximaVacuna).format('LL'),
           edad: edad + time
 
-        });
+        })
+        ;
       });
       console.log(this.perros);
     });

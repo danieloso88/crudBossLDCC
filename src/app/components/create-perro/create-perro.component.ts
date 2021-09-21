@@ -31,6 +31,7 @@ export class CreatePerroComponent implements OnInit {
       raza: ['', Validators.required],
       color: ['', Validators.required],
       fechaNacimiento: ['', Validators.required],
+      ultimaVacuna: ['', Validators.required],
     });
     this.id = this.aRoute.snapshot.paramMap.get('id');
 
@@ -61,6 +62,7 @@ export class CreatePerroComponent implements OnInit {
       raza: this.createPerro.value.raza,
       color: this.createPerro.value.color,
       fechaNacimiento: this.createPerro.value.fechaNacimiento,
+      ultimaVacuna: this.createPerro.value.ultimaVacuna,
       fechaRegistro: new Date(),
       fechaActualizacion: new Date()
 
@@ -85,6 +87,7 @@ export class CreatePerroComponent implements OnInit {
       raza: this.createPerro.value.raza,
       color: this.createPerro.value.color,
       fechaNacimiento: this.createPerro.value.fechaNacimiento,
+      ultimaVacuna: this.createPerro.value.ultimaVacuna,
       fechaActualizacion: new Date()
 
     }
