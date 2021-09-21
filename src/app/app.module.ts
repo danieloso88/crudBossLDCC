@@ -19,9 +19,9 @@ import {MatMomentDateModule} from "@angular/material-moment-adapter";
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatInputModule} from "@angular/material/input";
 import {ToastrModule} from 'ngx-toastr';
+import {NgxDaterangepickerMd} from 'ngx-daterangepicker-material';
 import * as moment from 'moment';
 import 'moment/locale/es-mx';
-
 
 
 @NgModule({
@@ -40,6 +40,7 @@ import 'moment/locale/es-mx';
     AngularFirestoreModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxDaterangepickerMd.forRoot(),
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatFormFieldModule,

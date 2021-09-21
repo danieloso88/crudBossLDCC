@@ -2,6 +2,8 @@
   <div class="card">
     <div class="card-body">
       <span class="h3">Lista de Perritos</span>
+      <label >Filtrar por fecha de nacimiento</label>
+      <input type="text" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control"/>
       <button class="btn btn-success btn-lg" style="float:right" routerLink="/create-perro">Agregar</button>
       <h5 *ngIf="perros.length == 0" style="margin-top: 30px">No hay datos para mostrar</h5>
       <table *ngIf="perros.length > 0" class="table mt-5  table-success table-striped">

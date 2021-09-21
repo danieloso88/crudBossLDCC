@@ -38,6 +38,7 @@ export class CreatePerroComponent implements OnInit {
 
   ngOnInit(): void {
     this.isEdit();
+
   }
 
   addEditPerro() {

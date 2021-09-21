@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import * as moment from 'moment';
 import {PerrosService} from "../../services/perros.service";
 import {ToastrService} from "ngx-toastr";
+import {Dayjs} from "dayjs";
 
 @Component({
   selector: 'app-list-perros',
@@ -9,11 +10,13 @@ import {ToastrService} from "ngx-toastr";
   styleUrls: ['./list-perros.component.css'],
 })
 export class ListPerrosComponent implements OnInit {
+  selected: any;
   perros: any[] = [];
 
 
   constructor(private _perrosService: PerrosService,
-              private toastr: ToastrService) {
+              private toastr: ToastrService,
+  ) {
   }
 
   ngOnInit(): void {
