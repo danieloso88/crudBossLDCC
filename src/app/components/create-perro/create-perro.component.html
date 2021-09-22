@@ -35,9 +35,9 @@
               <div class="col">
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Fecha de nacimiento</mat-label>
-                  <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento">
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
+                  <input matInput [matDatepicker]="pickerBDate" formControlName="fechaNacimiento">
+                  <mat-datepicker-toggle matSuffix [for]="pickerBDate"></mat-datepicker-toggle>
+                  <mat-datepicker #pickerBDate></mat-datepicker>
                 </mat-form-field>
               </div>
             </div>
@@ -45,9 +45,9 @@
               <div class="col">
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Última vacuna</mat-label>
-                  <input matInput [matDatepicker]="picker" formControlName="ultimaVacuna">
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
+                  <input matInput [matDatepicker]="pickerVac" formControlName="ultimaVacuna">
+                  <mat-datepicker-toggle matSuffix [for]="pickerVac"></mat-datepicker-toggle>
+                  <mat-datepicker #pickerVac></mat-datepicker>
                 </mat-form-field>
               </div>
             </div>
