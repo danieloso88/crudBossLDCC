@@ -54,7 +54,7 @@ import 'moment/locale/es-mx';
   ],
   providers: [
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
   ],
   bootstrap: [AppComponent]
 })
