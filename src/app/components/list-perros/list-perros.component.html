@@ -2,10 +2,18 @@
   <div class="card">
     <div class="card-body">
       <span class="h3">Lista de Perritos</span>
-      <input type="text" style="width:40%; margin-top: 30px;" placeholder="Filtrar por fecha de nacimiento" ngxDaterangepickerMd [(ngModel)]="selected"
+      <input type="text" style="width:40%; margin-top: 30px;"
+             placeholder="Filtrar por fecha de nacimiento"
+             [ranges]="ranges"
+             [showCustomRangeLabel]="true"
+             [alwaysShowCalendars]="true"
+             [isInvalidDate]="isInvalidDate"
+             [linkedCalendars]="true"
+             ngxDaterangepickerMd [(ngModel)]="selected"
              class="form-control"/>
       <button class="btn btn-success btn" style="float:right" routerLink="/create-perro">Agregar</button>
-      <button class="btn btn-info btn" style="float:left">Buscar</button>
+      <button class="btn btn-info btn" style="float:left" (click)="getPerrosFecha()">Buscar</button>
+      <button class="btn btn-danger btn" style="float:left;" (click)="getPerros()">Cancelar</button>
       <h5 *ngIf="perros.length == 0" style="margin-top: 30px">No hay datos para mostrar</h5>
       <table *ngIf="perros.length > 0" class="table mt-5  table-success table-striped">
         <thead>

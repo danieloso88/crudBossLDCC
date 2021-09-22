@@ -42,6 +42,7 @@ export class CreatePerroComponent implements OnInit {
 
   }
 
+
   addEditPerro() {
     this.submitted = true;
     this.loading = true;
@@ -105,11 +106,13 @@ export class CreatePerroComponent implements OnInit {
       this.btnAddUpd = 'Actualizar';
       this._perroService.getPerro(this.id).subscribe(data => {
         var date = new Date(data.payload.data()["fechaNacimiento"].seconds * 1000);
+        var ultimaVacuna = new Date(data.payload.data()["ultimaVacuna"].seconds * 1000);
         this.createPerro.setValue({
           nombre: data.payload.data()["nombre"],
           raza: data.payload.data()["raza"],
           color: data.payload.data()["color"],
           fechaNacimiento: date,
+          ultimaVacuna: ultimaVacuna,
         })
       })
     }

@@ -27,6 +27,13 @@ export class PerrosService {
     return this.firestore.collection('perros').doc(id).snapshotChanges();
   }
 
+  getPerrosFecha(starDate: string, endDate: string): Observable<any> {
+    return this.firestore
+      .collection('perros',
+        ref => ref.where('fechaNacimiento', '>=', starDate)
+          .where('fechaNacimiento', '>=', endDate)).snapshotChanges();
+  }
+
   updatePerro(id: string, perro: any): Promise<any> {
     return this.firestore.collection('perros').doc(id).update(perro);
   }
